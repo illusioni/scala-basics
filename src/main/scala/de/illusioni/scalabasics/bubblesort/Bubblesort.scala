@@ -1,7 +1,5 @@
 package de.illusioni.scalabasics.bubblesort
 
-import scala.annotation.tailrec
-
 object Bubblesort {
 
   private def swap(array: Array[Int], a: Int, b: Int) = {
