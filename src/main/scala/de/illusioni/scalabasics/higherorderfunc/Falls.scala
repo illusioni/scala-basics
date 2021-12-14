@@ -2,16 +2,19 @@ package de.illusioni.scalabasics.higherorderfunc
 
 object Falls {
 
-  def falls[T](cond: Boolean)(block: => T): Any = {
+  def falls[T](cond: Boolean)(block: => T): T = {
     cond match {
       case true => block
-      case false => ()
+      case false => null.asInstanceOf[T]
     }
   }
 
   def main(args: Array[String]): Unit = {
-    falls (true) { println("true passt")}
-    falls (false) { assert(false) }
+    val v1 = falls (true) { println("true passt"); 8 }
+    val v2 = falls (false) { assert(false); "str" }
     println("false passt")
+    assert(v1 == 8)
+    assert(v2 eq null)
+    println("result passt")
   }
 }
