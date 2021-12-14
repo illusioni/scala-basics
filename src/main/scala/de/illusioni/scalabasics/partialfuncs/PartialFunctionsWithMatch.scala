@@ -36,6 +36,16 @@ object PartialFunctionsWithMatch {
       case Girl(g) => g.name
     }
     println(namesOfGirls.mkString(","))
+
+    val namesContainingA = data.collect {
+      case Child(name, age, gender) if name.contains("a") => name
+    }
+    println(namesContainingA.mkString(","))
+
+    val agesOfBoysWithK = data.collect {
+      case Child(name, age, Male) if name.startsWith("K") => age
+    }
+    println(agesOfBoysWithK.mkString(","))
   }
 
 }
