@@ -1,4 +1,4 @@
-package de.illusioni.scalabasics.typeascription
+package de.illusioni.scalabasics.varargs
 
 object VarArgsDemo {
 

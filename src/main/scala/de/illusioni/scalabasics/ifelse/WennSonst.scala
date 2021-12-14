@@ -1,4 +1,4 @@
-package de.illusioni.scalabasics.higherorderfunc
+package de.illusioni.scalabasics.ifelse
 
 object WennSonst {
 
