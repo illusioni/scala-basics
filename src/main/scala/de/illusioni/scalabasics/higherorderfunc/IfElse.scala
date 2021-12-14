@@ -4,31 +4,35 @@ object IfElse {
 
   def main(args: Array[String]): Unit = {
 
-    when(false) {
+    val res = wenn(false) {
       println("the condition was true")
-    } otherwise {
+      1
+    } sonst {
       println("the condition was false")
+      0
     }
+
+    println(res)
   }
 
 
-  def when(condition: => Boolean)(block: => Any): When = {
+  def wenn[T](condition: Boolean)(block: => T): When[T] = {
     condition match {
-      case true => { block; WhenTrue }
-      case _ => WhenFalse
+      case true => { WhenTrue[T](block) }
+      case _ => WhenFalse()
     }
   }
 
-  trait When {
-    def otherwise(block: => Any): Unit
+  trait When[T] {
+    def sonst[U, V](block: => U): V
   }
 
-  object WhenTrue extends When {
-    override def otherwise(block: => Any) = ()
+  case class WhenTrue[T](whenResult: T) extends When[T] {
+    override def sonst[U, V<:T](block: => U): V = whenResult
   }
 
-  object WhenFalse extends When {
-    override def otherwise(block: => Any): Unit = block
+  case class WhenFalse[T]() extends When[T] {
+    override def sonst[U, Unit](block: => U) = { block; null.asInstanceOf[Unit] }
   }
 
 }
