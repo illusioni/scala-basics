@@ -16,5 +16,8 @@ object WennSonst {
   def main(args: Array[String]): Unit = {
     val v1 = wenn (true) { println("true passt"); 2 } sonst { assert(false, "must not be called"); 5.2 }
     val v2 = wenn (false) { assert(false, "must not be called"); "no" } sonst { println("false passt"); "yo" }
+    assert(v1 == 2)
+    assert(v2 == "yo")
+    println("result passt")
   }
 }
