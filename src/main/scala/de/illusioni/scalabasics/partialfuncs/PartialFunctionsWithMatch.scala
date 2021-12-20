@@ -7,6 +7,14 @@ object Other extends Gender
 
 case class Child(name: String, age: Int, gender: Gender)
 
+
+//class MyChild(val name: String, val age: Int) {
+//}
+//
+//object MyChild {
+//  def unapply(m: MyChild): Option[(String, Int)] = Some((m.name, m.age))
+//}
+
 //extractor objects
 object Boy {
   def unapply(c: Child) = if (c.gender == Male) Some(c) else None
@@ -38,7 +46,7 @@ object PartialFunctionsWithMatch {
     println(namesOfGirls.mkString(","))
 
     val namesContainingA = data.collect {
-      case Child(name, age, gender) if name.contains("a") => name
+      case Child(name, _, _) if name.contains("a") => name
     }
     println(namesContainingA.mkString(","))
 

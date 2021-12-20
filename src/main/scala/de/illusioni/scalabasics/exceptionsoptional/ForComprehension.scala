@@ -18,11 +18,11 @@ object ForComprehension {
       case None => println("one of the operations failed, no further operations were executed")
     }
 
-    //    val res = readSomething()
-    //      .flatMap(data1 =>
-    //        readSomething()
-    //          .map(data2 => multiply(data1, data2))
-    //      )
+//        val res = readSomething()
+//          .flatMap(data1 =>
+//            readSomething()
+//              .map(data2 => multiply(data1, data2))
+//          )
   }
 
   // a pure function that doesn't (need to) care about exceptions

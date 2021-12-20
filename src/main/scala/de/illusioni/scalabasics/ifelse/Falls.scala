@@ -2,11 +2,16 @@ package de.illusioni.scalabasics.ifelse
 
 object Falls {
 
-  def falls[T](cond: Boolean)(block: => T): T = {
-    cond match {
-      case true => block
-      case false => null.asInstanceOf[T]
-    }
+//  def falls[T](cond: Boolean)(block: => T): T = {
+//    cond match {
+//      case true => block
+//      case false => null.asInstanceOf[T]
+//    }
+//  }
+
+  def falls[T](cond: Boolean) = {
+    def f (block: => T) = if (cond) block else null.asInstanceOf[T]
+    f _     // f: ((=>T)=>T)
   }
 
   def main(args: Array[String]): Unit = {

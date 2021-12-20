@@ -10,7 +10,15 @@ object PartialFunctions {
     val pFunc: PartialFunction[Int, Int] = {
       case x if x % 2 == 0 => x/2
     }
-    val evenNumbersBy2 = data.collect(pFunc)
+    val qFunc: PartialFunction[Int, Int] = {
+      case x if x>0 => x*3
+    }
+    val aggFunc = pFunc orElse qFunc
+
+    val dAfterPFunc = data.collect(pFunc)
+    val res = dAfterPFunc.collect(qFunc)
+
+    val evenNumbersBy2 = data.collect(aggFunc)
 
     //v2
 //    val evenNumbersBy2 = data.collect {
