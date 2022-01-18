@@ -1,5 +1,9 @@
 package de.illusioni.scalabasics.shapes
 
+import org.scalatest.GivenWhenThen
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should
+
 import scala.language.postfixOps
 
 class ShapesSpec extends AnyFlatSpec with GivenWhenThen with should.Matchers {

@@ -8,6 +8,7 @@ object SelfType {
 
   def initEnv(): Environment = {
     new Environment with DbConnector with TxManagerB
+//    new Environment with FileConnector with TxManagerA
   }
 }
 
