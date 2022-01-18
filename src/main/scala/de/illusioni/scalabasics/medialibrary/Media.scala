@@ -3,7 +3,7 @@ package de.illusioni.scalabasics.medialibrary
 import java.nio.file.Path
 
 case class Media(kind: Kind, path: String) {
-  private val fileRef = Path.of(path)
+//  private val fileRef = Path.of(path)
 }
 //Das Java Pendant wäre:
 //public class Media {

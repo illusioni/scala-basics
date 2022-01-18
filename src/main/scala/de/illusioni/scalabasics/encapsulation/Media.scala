@@ -3,11 +3,11 @@ package de.illusioni.scalabasics.encapsulation
 import java.nio.file.Path
 
 class Media(var path: String) {
-  private var fileRef: Path = Path.of(path)
+//  private var fileRef: Path = Path.of(path)
 
-  def path_=(newVal: String) = {
-    fileRef = Path.of(newVal)
-  }
+//  def path_=(newVal: String) = {
+//    fileRef = Path.of(newVal)
+//  }
 
 }
 
