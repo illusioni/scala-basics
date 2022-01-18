@@ -1,8 +1,6 @@
 package de.illusioni.scalabasics.medialibrary
 
-case class MediaLibrary(items: Set[Content] = Set()) extends Collection[Content] {
-//  override def :+(newItem: Content): MediaLibrary = (super.:+(newItem)).asInstanceOf[MediaLibrary]
-}
+case class MediaLibrary(items: Set[Content] = Set()) extends Collection[MediaLibrary, Content]
 
 object MediaLibrary {
 
@@ -38,7 +36,7 @@ object MediaLibrary {
       )
     )
 
-    var myLib: Collection[Content] = MediaLibrary(lost, tatort)
+    var myLib = MediaLibrary(lost, tatort)
     myLib = myLib :+ Movie("Wag the Dog", Comedy, "Barry Levinson")
     println(myLib)
   }

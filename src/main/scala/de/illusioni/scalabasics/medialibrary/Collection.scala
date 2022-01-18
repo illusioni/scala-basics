@@ -1,5 +1,11 @@
 package de.illusioni.scalabasics.medialibrary
 
-trait Collection[T <: Content] { self: {def items: Set[Content]; def copy(items: Set[Content]): Collection[T]} =>
-  def :+(newItem: Content) = copy(items + newItem)
+trait Collection[ImplType, ItemType <: Content] {
+  self: {def items: Set[Content]; def copy(items: Set[Content]): Collection[ImplType, ItemType]} =>
+
+  def :+(newItem: Content): ImplType = {
+    val collectionWithNewItem = copy(items + newItem)
+    collectionWithNewItem.asInstanceOf[ImplType]
+  }
+
 }
