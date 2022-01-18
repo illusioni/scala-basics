@@ -17,19 +17,38 @@ case class Circle(radius: Int) extends Shape {
   override def area: Int = (radius * radius * Math.PI).toInt
 }
 
-trait Rectangle extends Shape { self: {def width: Int; def height: Int} =>
+//trait Rectangle extends Shape { self: {var width: Int; var height: Int} =>
+//  override def area: Int = width * height
+//}
+
+class Rectangle(var width: Int, var height: Int) extends Shape {
   override def area: Int = width * height
+  def setWidth(width: Int) = { this.width = width }
+  def setHeight(height: Int) = { this.height = height }
 }
 
-case class RectangleImpl(width: Int, height: Int) extends Rectangle {
+//case class Square(width: Int) extends Shape with Rectangle {
+//  protected def height = width
+//}
+
+class Square(w: Int) extends Rectangle(w, w) {
+  override def setWidth(width: Int) {
+    this.height = width
+    this.width = width
+  }
+
+  override def setHeight(width: Int) {
+    this.height = width
+    this.width = width
+  }
 }
 
-case class Square(width: Int) extends Shape with Rectangle {
-  protected def height = width
+object Square {
+  def apply(width: Int): Rectangle = new Square(width)
 }
 
 object Rectangle {
-  def apply(width: Int, height: Int): Rectangle = new RectangleImpl(width, height)
+  def apply(width: Int, height: Int): Rectangle = new Rectangle(width, height)
 }
 
 object Main {
