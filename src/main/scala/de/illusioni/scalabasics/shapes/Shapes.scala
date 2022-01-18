@@ -22,7 +22,6 @@ trait Rectangle extends Shape { self: {def width: Int; def height: Int} =>
 }
 
 case class RectangleImpl(width: Int, height: Int) extends Rectangle {
-  override def area: Int = width * height
 }
 
 case class Square(width: Int) extends Shape with Rectangle {
@@ -31,4 +30,10 @@ case class Square(width: Int) extends Shape with Rectangle {
 
 object Rectangle {
   def apply(width: Int, height: Int): Rectangle = new RectangleImpl(width, height)
+}
+
+object Main {
+  def main(args: Array[String]): Unit = {
+    val myShape = Rectangle(4, 10)
+  }
 }

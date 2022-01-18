@@ -12,11 +12,15 @@ class ShapesSpec extends AnyFlatSpec with GivenWhenThen with should.Matchers {
     Rectangle(2, 5) -> 10,
     Rectangle(1, 1) -> 1,
     Rectangle (0, 7) -> 0,
-    Square(5) -> 25
+//    Square(5) -> 25
   )
 
   "A rectangle" should "compute its surface area correctly" in {
     for ((shape, area) <- rectanglesWithArea) shape.area should equal(area)
+  }
 
+  "A rectangle" should "resize when setter of width is called" in {
+    val myRect = Rectangle(2, 5)
+    myRect.w = 4
   }
 }
